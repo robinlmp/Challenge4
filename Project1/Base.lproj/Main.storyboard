@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Fo-ZO-W74">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Fo-ZO-W74">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,22 +17,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Picture" textLabel="4K5-Lj-qrQ" style="IBUITableViewCellStyleDefault" id="ciN-6H-fbc">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Picture" rowHeight="110" id="ciN-6H-fbc" customClass="PictureCell" customModule="Project1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ciN-6H-fbc" id="E28-GB-C8Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ciN-6H-fbc" translatesAutoresizingMaskIntoConstraints="NO" id="E28-GB-C8Q">
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="110"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4K5-Lj-qrQ">
-                                            <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSX-LO-Wkq" userLabel="pictureImage">
+                                            <rect key="frame" x="20" y="5" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="YSX-LO-Wkq" secondAttribute="height" multiplier="1:1" id="01Q-8Y-2Hj"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="F21-1E-250"/>
+                                                <constraint firstAttribute="height" constant="100" id="iVi-pW-4pn"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbq-k1-Dc8" userLabel="pictureCaption">
+                                            <rect key="frame" x="140" y="44" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YSX-LO-Wkq" firstAttribute="centerY" secondItem="E28-GB-C8Q" secondAttribute="centerY" id="MPu-BW-lKq"/>
+                                        <constraint firstItem="cbq-k1-Dc8" firstAttribute="leading" secondItem="YSX-LO-Wkq" secondAttribute="trailing" constant="20" id="q8V-aV-4f9"/>
+                                        <constraint firstItem="YSX-LO-Wkq" firstAttribute="leading" secondItem="E28-GB-C8Q" secondAttribute="leading" constant="20" symbolic="YES" id="uV6-5f-cS7"/>
+                                        <constraint firstItem="cbq-k1-Dc8" firstAttribute="centerY" secondItem="YSX-LO-Wkq" secondAttribute="centerY" id="y4z-9b-wnU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pictureCaption" destination="cbq-k1-Dc8" id="0j0-Kg-kqD"/>
+                                    <outlet property="pictureImage" destination="YSX-LO-Wkq" id="L09-Hr-7aO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
